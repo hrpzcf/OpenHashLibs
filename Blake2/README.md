@@ -1,6 +1,6 @@
 # About
 
-Part of the source code in the `Blake2` directory is copied from the `BLAKE2` project.
+Most of the source code in the `Blake2` directory is copied from the `BLAKE2` project.
 
 # Pages
 

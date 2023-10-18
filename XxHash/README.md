@@ -1,6 +1,6 @@
 # About
 
-XxHash's dynamic link library files `xxhash_x64.dll` and `xxhash_x86.dll` are copied from xxhash's vcpkg package.
+Dynamic link library files `xxhash_x64.dll` and `xxhash_x86.dll` are both copied from xxhash's vcpkg package.
 
 # Pages
 
