@@ -4,11 +4,11 @@ project(whirlpool_x86 VERSION 0.1.0)
 set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} -m32)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} -m32)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ../../../Output)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../../Output")
 
 include_directories(..)
 aux_source_directory(.. src)
 
 add_library(whirlpool_x86 SHARED ${src})
 
-SET_TARGET_PROPERTIES(whirlpool_x86 PROPERTIES PREFIX "")
+set_target_properties(whirlpool_x86 PROPERTIES PREFIX "")
