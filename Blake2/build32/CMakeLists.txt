@@ -9,6 +9,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../../../Output")
 include_directories(..)
 aux_source_directory(.. src)
 
-add_library(blake2_x86 SHARED ${src})
+add_library(${PROJECT_NAME} SHARED ${src})
 
-set_target_properties(blake2_x86 PROPERTIES PREFIX "")
+set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
