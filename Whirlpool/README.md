@@ -1,6 +1,6 @@
 # About
 
-Most of the source code in the `Whirlpool` directory is copied from the `Hashrat` project.
+Most of the source code in this directory (except whirlpoolext.c) is copied from the `Hashrat` project.
 
 # Pages
 
