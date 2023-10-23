@@ -2,6 +2,13 @@
 #include <stdint.h>
 #include "gost3411-2012-core.h"
 
+typedef enum return_s_
+{
+    OK,
+    BAD_PARAM,
+    FAIL,
+} RETURN_t;
+
 GOST34112012Context *streebog_new(void)
 {
     return malloc(sizeof(GOST34112012Context));
@@ -13,8 +20,12 @@ void streebog_delete(GOST34112012Context *state)
     state = NULL;
 }
 
-void streebog_init(GOST34112012Context *state, uint32_t bit_len)
+RETURN_t streebog_init(GOST34112012Context *state, uint32_t bit_len)
 {
+    if (bit_len != 256u && bit_len != 512u)
+    {
+        return BAD_PARAM;
+    }
     GOST34112012Init(state, bit_len);
 }
 
