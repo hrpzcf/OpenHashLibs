@@ -4,7 +4,7 @@ The `.c` and `.h` files in this directory (except `sha2ext.c`), as well as all f
 
 See [https://github.com/python/cpython/blob/v3.12.0/Modules/_hacl/README.md](https://github.com/python/cpython/blob/v3.12.0/Modules/_hacl/README.md) for details.
 
-# Pages
+# Links
 
 [https://www.python.org/](https://www.python.org/)
 
