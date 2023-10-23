@@ -12,5 +12,8 @@ add_subdirectory("./Keccak/build64")
 add_subdirectory("./Sha2/build32")
 add_subdirectory("./Sha2/build64")
 
+add_subdirectory("./Streebog/build32")
+add_subdirectory("./Streebog/build64")
+
 add_subdirectory("./Whirlpool/build32")
 add_subdirectory("./Whirlpool/build64")
