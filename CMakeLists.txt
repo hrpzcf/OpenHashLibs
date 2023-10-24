@@ -9,6 +9,9 @@ add_subdirectory("./Blake2/build64")
 add_subdirectory("./Keccak/build32")
 add_subdirectory("./Keccak/build64")
 
+add_subdirectory("./QuickXor/build32")
+add_subdirectory("./QuickXor/build64")
+
 add_subdirectory("./Sha2/build32")
 add_subdirectory("./Sha2/build64")
 
