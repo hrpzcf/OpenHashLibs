@@ -6,6 +6,9 @@ set(OHT_FLAVOR "SSE2")
 add_subdirectory("./Blake2/build32")
 add_subdirectory("./Blake2/build64")
 
+add_subdirectory("./CrcHash/build32")
+add_subdirectory("./CrcHash/build64")
+
 add_subdirectory("./Keccak/build32")
 add_subdirectory("./Keccak/build64")
 
