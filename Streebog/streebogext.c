@@ -1,13 +1,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include "gost3411-2012-core.h"
-
-typedef enum return_s_
-{
-    OK,
-    BAD_PARAM,
-    FAIL,
-} RETURN_t;
+#include "streebogext.h"
 
 GOST34112012Context *streebog_new(void)
 {

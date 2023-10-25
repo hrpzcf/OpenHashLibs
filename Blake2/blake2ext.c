@@ -1,13 +1,11 @@
 #include <stdlib.h>
 #include "blake2.h"
+#include "blake2ext.h"
 
-void blake2_delete_state(void *state)
+void blake2_delete(void *state)
 {
-    if (NULL != state)
-    {
-        free(state);
-        state = NULL;
-    }
+    free(state);
+    state = NULL;
 }
 
 blake2s_state *blake2s_new()

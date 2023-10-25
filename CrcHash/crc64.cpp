@@ -1,7 +1,7 @@
 // public domain, by duk
-#include "crc64.h"
 #include <array>
 #include <cstdint>
+#include "crc64.h"
 
 constexpr uint64_t poly = 0xC96C5795D7870F42ULL;
 constexpr uint32_t max_slice = 16;
@@ -25,7 +25,7 @@ static constexpr std::array<std::array<uint64_t, 256>, max_slice> crc_table = []
   return out;
 }();
 
-uint64_t crc64(uint64_t crc, const void* buf_, size_t len)
+uint64_t crc64_update(uint64_t crc, const void* buf_, size_t len)
 {
   auto buf = (const uint8_t*)buf_;
 

@@ -6,6 +6,20 @@
 // see http://create.stephan-brumme.com/disclaimer.html
 //
 
+#ifndef CRC32_H_
+#define CRC32_H_
+
+// size_t
+#include <cstddef>
+// uint8_t, uint32_t, int32_t
+#include <cstdint>
+
+#ifdef EXPORT_DLL_FUNCS
+    #define DllExport __declspec(dllexport)
+#else
+    #define DllExport __declspec(dllimport)
+#endif
+
 // if running on an embedded system, you might consider shrinking the
 // big Crc32Lookup table by undefining these lines:
 #define CRC32_USE_LOOKUP_TABLE_BYTE
@@ -21,11 +35,6 @@
 // - crc32_4x8bytes needs only Crc32Lookup[0..7]
 // - crc32_16bytes  needs all of Crc32Lookup
 // using the aforementioned #defines the table is automatically fitted to your needs
-
-// uint8_t, uint32_t, int32_t
-#include <stdint.h>
-// size_t
-#include <cstddef>
 
 #if defined(__cplusplus)
 extern "C" {
@@ -67,7 +76,7 @@ uint32_t crc32_4x8bytes(const void* data, size_t length, uint32_t previousCrc32 
 
 #ifdef CRC32_USE_LOOKUP_TABLE_SLICING_BY_16
 /// compute CRC32 (Slicing-by-16 algorithm)
-uint32_t crc32_16bytes (const void* data, size_t length, uint32_t previousCrc32 = 0);
+DllExport uint32_t crc32_16bytes (const void* data, size_t length, uint32_t previousCrc32 = 0);
 /// compute CRC32 (Slicing-by-16 algorithm, prefetch upcoming data blocks)
 uint32_t crc32_16bytes_prefetch(const void* data, size_t length, uint32_t previousCrc32 = 0, size_t prefetchAhead = 256);
 #endif
@@ -75,3 +84,5 @@ uint32_t crc32_16bytes_prefetch(const void* data, size_t length, uint32_t previo
 #if defined(__cplusplus)
 }
 #endif
+
+#endif // CRC32_H_

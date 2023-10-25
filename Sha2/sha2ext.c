@@ -1,15 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Hacl_Hash_SHA2.h"
+#include "sha2ext.h"
 
 Hacl_Streaming_MD_state_32 *sha224_new(void)
 {
     return Hacl_Streaming_SHA2_create_in_224();
-}
-
-void sha224_delete(Hacl_Streaming_MD_state_32 *state)
-{
-    Hacl_Streaming_SHA2_free_224(state);
 }
 
 void sha224_init(Hacl_Streaming_MD_state_32 *state)
@@ -29,4 +25,9 @@ void sha224_final(Hacl_Streaming_MD_state_32 *state, void *output, uint32_t outp
         return;
     }
     Hacl_Streaming_SHA2_finish_224(state, output);
+}
+
+void sha224_delete(Hacl_Streaming_MD_state_32 *state)
+{
+    Hacl_Streaming_SHA2_free_224(state);
 }

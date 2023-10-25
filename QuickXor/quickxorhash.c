@@ -1,5 +1,6 @@
 #include <string.h>
 #include "quickxorhash.h"
+#include "quickxorext.h"
 
 void qxhash_init(qxhash_t *ctx)
 {
