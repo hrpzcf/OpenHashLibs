@@ -10,7 +10,7 @@
     #define DllExport __declspec(dllimport)
 #endif
 
-typedef enum return_s_
+typedef enum
 {
     OK,
     BAD_PARAM,

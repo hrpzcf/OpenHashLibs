@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.27.0)
-project("bridge" VERSION 0.1.0)
+project("hashes" VERSION 0.1.0)
 
 add_definitions(-DEXPORT_DLL_FUNCS)
 
@@ -14,7 +14,7 @@ add_subdirectory("Sha2")
 add_subdirectory("Streebog")
 add_subdirectory("Whirlpool")
 
-add_library(${PROJECT_NAME} SHARED "bridge.c")
+add_library(${PROJECT_NAME} SHARED "hashes.c")
 
 target_link_libraries(${PROJECT_NAME}
         "-Wl,--whole-archive"
