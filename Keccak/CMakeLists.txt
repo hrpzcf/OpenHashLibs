@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.27.0)
 project(keccak VERSION 0.1.0)
 
+set(PREFERRED_INSTRUCTION "SSE2")
+
 set(COMMON_FILES
         ./keccakext.c
         ./high/Keccak/FIPS202/KeccakHash.c
@@ -76,22 +78,25 @@ set(GENERIC_INCLUDES
         ./low/KeccakP-1600/plain-64bits/ua
         )
 
-if ("${OHT_FLAVOR}" STREQUAL "SSE2")
+if ("${PREFERRED_INSTRUCTION}" STREQUAL "SSE2")
     set(FILES ${COMMON_FILES} ${GENERIC_FILES})
     set(INCLUDES ${COMMON_INCLUDES} ${GENERIC_INCLUDES})
-elseif ("${OHT_FLAVOR}" STREQUAL "AVX")
+elseif ("${PREFERRED_INSTRUCTION}" STREQUAL "AVX")
     set(FILES ${COMMON_FILES} ${AVX_FILES})
     set(INCLUDES ${COMMON_INCLUDES} ${AVX_INCLUDES})
-elseif ("${OHT_FLAVOR}" STREQUAL "AVX2")
+elseif ("${PREFERRED_INSTRUCTION}" STREQUAL "AVX2")
     set(FILES ${COMMON_FILES} ${AVX2_FILES})
     set(INCLUDES ${COMMON_INCLUDES} ${AVX2_INCLUDES})
-elseif ("${OHT_FLAVOR}" STREQUAL "AVX512")
+elseif ("${PREFERRED_INSTRUCTION}" STREQUAL "AVX512")
     set(FILES ${COMMON_FILES} ${AVX512_FILES})
     set(INCLUDES ${COMMON_INCLUDES} ${AVX512_INCLUDES})
 else ()
-    message(FATAL_ERROR "OHT_FLAVOR not set.")
+    message(FATAL_ERROR "PREFERRED_INSTRUCTION not set.")
 endif ()
 
 add_library(${PROJECT_NAME} STATIC ${FILES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ${INCLUDES}
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)

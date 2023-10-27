@@ -3,7 +3,6 @@ project("hashes" VERSION 0.1.0)
 
 add_definitions(-DEXPORT_DLL_FUNCS)
 
-set(OHT_FLAVOR "SSE2")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
 
 add_subdirectory("Blake2")
