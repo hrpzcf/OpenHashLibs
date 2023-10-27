@@ -13,6 +13,7 @@ add_subdirectory("QuickXor")
 add_subdirectory("Sha2")
 add_subdirectory("Streebog")
 add_subdirectory("Whirlpool")
+add_subdirectory("XxHash")
 
 add_library(${PROJECT_NAME} SHARED "hashes.c")
 
@@ -25,6 +26,7 @@ target_link_libraries(${PROJECT_NAME}
         sha2
         streebog
         whirlpool
+        xxhash
         "-Wl,--no-whole-archive"
     )
 
