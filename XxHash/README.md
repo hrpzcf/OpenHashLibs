@@ -1,6 +1,6 @@
 # About
 
-The `xxhash_x64.dll` file and the `xxhash_x86.dll` file are both copied from [xxhash](https://github.com/Cyan4973/xxHash)'s vcpkg package.
+Most of the source code in this directory (except `xxhashext.c` and `xxhashext.h`)  is copied from the [xxhash](https://github.com/Cyan4973/xxHash) project.
 
 # Links
 
