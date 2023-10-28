@@ -6,6 +6,7 @@ add_definitions(-DEXPORT_DLL_FUNCS)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
 
 add_subdirectory("Blake2")
+add_subdirectory("Blake3")
 add_subdirectory("CrcHash")
 add_subdirectory("Keccak")
 add_subdirectory("QuickXor")
@@ -19,6 +20,7 @@ add_library(${PROJECT_NAME} SHARED "hashes.c")
 target_link_libraries(${PROJECT_NAME}
         "-Wl,--whole-archive"
         blake2
+        blake3
         crchash
         keccak
         quickxor
