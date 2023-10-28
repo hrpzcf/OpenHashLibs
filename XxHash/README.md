@@ -1,6 +1,6 @@
 # About
 
-Most of the source code in this directory (except `xxhashext.c` and `xxhashext.h`)  is copied from the [xxhash](https://github.com/Cyan4973/xxHash) project.
+Most of the source code in this directory (except `xxhashext.c` and `xxhashext.h`)  was copied from the [xxhash](https://github.com/Cyan4973/xxHash) project.
 
 # Links
 

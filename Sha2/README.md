@@ -1,6 +1,6 @@
 # About
 
-The `.c` and `.h` files in this directory (except `sha2ext.c` and `sha2ext.h`), as well as all files in the `./include` directory, are copied from the [CPython](https://github.com/python/cpython) project.
+The files whose file name ends with `.c` and `.h` in this directory (except `sha2ext.c` and `sha2ext.h`), as well as all files in the `./include` directory, were copied from the [CPython](https://github.com/python/cpython) project.
 
 See [https://github.com/python/cpython/blob/v3.12.0/Modules/_hacl/README.md](https://github.com/python/cpython/blob/v3.12.0/Modules/_hacl/README.md) for details.
 
