@@ -8,12 +8,6 @@ GOST34112012Context *streebog_new(void)
     return malloc(sizeof(GOST34112012Context));
 }
 
-void streebog_delete(GOST34112012Context *state)
-{
-    free(state);
-    state = NULL;
-}
-
 RETURN_t streebog_init(GOST34112012Context *state, uint32_t bit_len)
 {
     if (bit_len != 256u && bit_len != 512u)
@@ -21,6 +15,7 @@ RETURN_t streebog_init(GOST34112012Context *state, uint32_t bit_len)
         return BAD_PARAM;
     }
     GOST34112012Init(state, bit_len);
+    return OK;
 }
 
 void streebog_update(GOST34112012Context *state, void *input, size_t in_len)
@@ -35,4 +30,10 @@ void streebog_final(GOST34112012Context *state, void *output, size_t out_len)
         return;
     }
     GOST34112012Final(state, output);
+}
+
+void streebog_delete(GOST34112012Context *state)
+{
+    free(state);
+    state = NULL;
 }

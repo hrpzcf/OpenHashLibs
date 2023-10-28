@@ -3,10 +3,10 @@
 
 #include "KeccakHash.h"
 
-#ifdef EXPORT_DLL_FUNCS
-    #define DllExport __declspec(dllexport)
+#ifndef EXPORT_DLL_FUNCS
+    #define DllExport
 #else
-    #define DllExport __declspec(dllimport)
+    #define DllExport __declspec(dllexport)
 #endif
 
 DllExport Keccak_HashInstance *keccak_new(void);

@@ -4,10 +4,10 @@
 #include <stdint.h>
 #include "gost3411-2012-core.h"
 
-#ifdef EXPORT_DLL_FUNCS
-    #define DllExport __declspec(dllexport)
+#ifndef EXPORT_DLL_FUNCS
+    #define DllExport
 #else
-    #define DllExport __declspec(dllimport)
+    #define DllExport __declspec(dllexport)
 #endif
 
 typedef enum

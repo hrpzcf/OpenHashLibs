@@ -3,10 +3,10 @@
 
 #include "blake2.h"
 
-#ifdef EXPORT_DLL_FUNCS
-    #define DllExport __declspec(dllexport)
+#ifndef EXPORT_DLL_FUNCS
+    #define DllExport
 #else
-    #define DllExport __declspec(dllimport)
+    #define DllExport __declspec(dllexport)
 #endif
 
 DllExport blake2s_state *blake2s_new();

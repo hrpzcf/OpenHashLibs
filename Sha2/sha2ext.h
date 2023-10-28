@@ -3,10 +3,10 @@
 
 #include "Hacl_Hash_SHA2.h"
 
-#ifdef EXPORT_DLL_FUNCS
-    #define DllExport __declspec(dllexport)
+#ifndef EXPORT_DLL_FUNCS
+    #define DllExport
 #else
-    #define DllExport __declspec(dllimport)
+    #define DllExport __declspec(dllexport)
 #endif
 
 DllExport Hacl_Streaming_MD_state_32 *sha224_new(void);

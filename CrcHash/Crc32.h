@@ -14,10 +14,10 @@
 // uint8_t, uint32_t, int32_t
 #include <cstdint>
 
-#ifdef EXPORT_DLL_FUNCS
-    #define DllExport __declspec(dllexport)
+#ifndef EXPORT_DLL_FUNCS
+    #define DllExport
 #else
-    #define DllExport __declspec(dllimport)
+    #define DllExport __declspec(dllexport)
 #endif
 
 // if running on an embedded system, you might consider shrinking the
