@@ -29,6 +29,7 @@ target_link_libraries(${PROJECT_NAME}
         whirlpool
         xxhash
         "-Wl,--no-whole-archive"
+        -static-libgcc
     )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
