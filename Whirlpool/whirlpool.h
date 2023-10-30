@@ -23,11 +23,10 @@ typedef struct WHIRLPOOLstruct
 	int bufferBits;           /* current number of bits on the buffer */
 	int bufferPos;            /* current (possibly incomplete) byte slot on the buffer */
 	uint64_t hash[WHIRLPOOL_DIGESTBYTES / 8];    /* the hashing state */
-} WHIRLPOOLstruct, whirlpool_state;
-
+} WHIRLPOOLstruct, WhirlpoolState;
 
 void WHIRLPOOLinit(struct WHIRLPOOLstruct* const structpointer);
-void WHIRLPOOLadd(const unsigned char* const source, unsigned long sourceBits, struct WHIRLPOOLstruct* const structpointer);
+void WHIRLPOOLadd(struct WHIRLPOOLstruct* const structpointer,const unsigned char* const source, size_t sourceBytes);
 void WHIRLPOOLfinalize(struct WHIRLPOOLstruct* const structpointer, unsigned char* const result);
 
 #endif

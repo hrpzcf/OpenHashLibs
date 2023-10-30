@@ -1,8 +1,6 @@
 cmake_minimum_required (VERSION 3.27.0)
 project("hashes" VERSION 0.1.0)
 
-add_definitions(-DEXPORT_DLL_FUNCS)
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
 
 add_subdirectory("Blake2")
@@ -15,22 +13,25 @@ add_subdirectory("Streebog")
 add_subdirectory("Whirlpool")
 add_subdirectory("XxHash")
 
-add_library(${PROJECT_NAME} SHARED "hashes.c")
+add_library(${PROJECT_NAME} SHARED
+    "hashes.c"
+    "dllexport.def"
+)
 
 target_link_libraries(${PROJECT_NAME}
-        "-Wl,--whole-archive"
-        blake2
-        blake3
-        crchash
-        keccak
-        quickxor
-        sha2
-        streebog
-        whirlpool
-        xxhash
-        "-Wl,--no-whole-archive"
-        -static-libgcc
-    )
+    "-Wl,--whole-archive"
+    blake2
+    blake3
+    crchash
+    keccak
+    quickxor
+    sha2
+    streebog
+    whirlpool
+    xxhash
+    "-Wl,--no-whole-archive"
+    -static-libgcc
+)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 

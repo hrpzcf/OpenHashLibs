@@ -1,12 +1,5 @@
 #include <stdlib.h>
 #include "blake2.h"
-#include "blake2ext.h"
-
-void blake2_delete(void *state)
-{
-    free(state);
-    state = NULL;
-}
 
 blake2s_state *blake2s_new()
 {
@@ -36,4 +29,10 @@ blake2xs_state *blake2xs_new()
 blake2xb_state *blake2xb_new()
 {
     return malloc(sizeof(blake2xb_state));
+}
+
+void blake2_delete(void *state)
+{
+    free(state);
+    state = NULL;
 }

@@ -1,0 +1,102 @@
+LIBRARY hashes
+EXPORTS
+    blake2b_delete      = blake2_delete
+    blake2b_final
+    blake2b_init
+    blake2b_new
+    blake2b_update
+
+    blake2bp_delete     = blake2_delete
+    blake2bp_final
+    blake2bp_init
+    blake2bp_new
+    blake2bp_update
+
+    blake2s_delete      = blake2_delete
+    blake2s_final
+    blake2s_init
+    blake2s_new
+    blake2s_update
+
+    blake2sp_delete     = blake2_delete
+    blake2sp_final
+    blake2sp_init
+    blake2sp_new
+    blake2sp_update
+
+    blake2xb_delete     = blake2_delete
+    blake2xb_final
+    blake2xb_init
+    blake2xb_new
+    blake2xb_update
+
+    blake2xs_delete     = blake2_delete
+    blake2xs_final
+    blake2xs_init
+    blake2xs_new
+    blake2xs_update
+
+    blake3_delete       = blake3_hasher_delete
+    blake3_final        = blake3_hasher_finalize
+    blake3_init         = blake3_hasher_init
+    blake3_new          = blake3_hasher_new
+    blake3_update       = blake3_hasher_update
+
+    crc32_update        = crc32_16bytes
+    crc64_update
+
+    get_hashes_ver
+
+    quickxor_delete     = qxhash_delete
+    quickxor_final      = qxhash_final
+    quickxor_init       = qxhash_init
+    quickxor_new        = qxhash_new
+    quickxor_update     = qxhash_update
+
+    sha224_delete       = Hacl_Streaming_SHA2_free_224
+    sha224_final        = Hacl_Streaming_SHA2_finish_224
+    sha224_init         = Hacl_Streaming_SHA2_init_224
+    sha224_new          = Hacl_Streaming_SHA2_create_in_224
+    sha224_update       = Hacl_Streaming_SHA2_update_224
+
+    sha3_delete         = keccak_delete
+    sha3_final
+    sha3_init
+    sha3_new            = keccak_new
+    sha3_update
+
+    streebog_delete     = GOST34112012Delete
+    streebog_final      = GOST34112012Final
+    streebog_init       = GOST34112012Init
+    streebog_new        = GOST34112012New
+    streebog_update     = GOST34112012Update
+
+    whirlpool_delete    = WHIRLPOOLdelete
+    whirlpool_final     = WHIRLPOOLfinalize
+    whirlpool_init      = WHIRLPOOLinit
+    whirlpool_new       = WHIRLPOOLnew
+    whirlpool_update    = WHIRLPOOLadd
+
+    xxh32_delete        = XXH32_freeState
+    xxh32_final         = XXH32_digest
+    xxh32_init          = XXH32_reset_noSeed
+    xxh32_new           = XXH32_createState
+    xxh32_update        = XXH32_update
+
+    xxh64_delete        = XXH64_freeState
+    xxh64_final         = XXH64_digest
+    xxh64_init          = XXH64_reset_noSeed
+    xxh64_new           = XXH64_createState
+    xxh64_update        = XXH64_update
+
+    xxh3_64_delete      = XXH3_freeState
+    xxh3_64_final       = XXH3_64bits_digest
+    xxh3_64_init        = XXH3_64bits_reset
+    xxh3_64_new         = XXH3_createState
+    xxh3_64_update      = XXH3_64bits_update_dispatch
+
+    xxh3_128_delete     = XXH3_freeState
+    xxh3_128_final      = XXH3_128bits_digest
+    xxh3_128_init       = XXH3_128bits_reset
+    xxh3_128_new        = XXH3_createState
+    xxh3_128_update     = XXH3_128bits_update_dispatch

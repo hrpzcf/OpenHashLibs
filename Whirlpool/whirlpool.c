@@ -1511,13 +1511,12 @@ void WHIRLPOOLinit(struct WHIRLPOOLstruct* const structpointer)
  * Delivers input data to the hashing algorithm.
  *
  * @param    source        plaintext data to hash.
- * @param    sourceBits    how many bits of plaintext to process.
+ * @param    sourceBytes   how many bytes of plaintext to process.
  *
  * This method maintains the invariant: bufferBits < WHIRLPOOL_DIGESTBITS
  */
-void WHIRLPOOLadd(const unsigned char* const source,
-    unsigned long sourceBits,
-    struct WHIRLPOOLstruct* const structpointer)
+void WHIRLPOOLadd(struct WHIRLPOOLstruct* const structpointer,
+    const unsigned char* const source, size_t sourceBytes)
 {
     /*
                        sourcePos
@@ -1531,6 +1530,7 @@ void WHIRLPOOLadd(const unsigned char* const source,
                     |
                     bufferPos
     */
+    unsigned long sourceBits = (unsigned long)(sourceBytes * 8);
     int sourcePos = 0; /* index of leftmost source unsigned char containing data (1 to 8 bits). */
     int sourceGap = (8 - ((int)sourceBits & 7)) & 7; /* space on source[sourcePos]. */
     int bufferRem = structpointer->bufferBits & 7; /* occupied bits on buffer[bufferPos]. */

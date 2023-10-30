@@ -16,7 +16,7 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang
 endif()
 
 # library target
-add_library(${PROJECT_NAME}
+add_library(${PROJECT_NAME} STATIC
     blake3.c
     blake3ext.c
     blake3_dispatch.c
