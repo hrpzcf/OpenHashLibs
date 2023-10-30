@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.27.0)
-project("hashes" VERSION 0.1.0)
+project("hashalgs" VERSION 0.1.0)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
 
@@ -14,8 +14,8 @@ add_subdirectory("Whirlpool")
 add_subdirectory("XxHash")
 
 add_library(${PROJECT_NAME} SHARED
-    "hashes.c"
-    "dllexport.def"
+    "hashalgs.c"
+    "algexp.def"
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -36,9 +36,9 @@ target_link_libraries(${PROJECT_NAME}
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
 if (CMAKE_SIZEOF_VOID_P EQUAL 4)
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "_x86.dll")
+    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "32.dll")
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "_x64.dll")
+    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "64.dll")
 else()
     message(FATAL_ERROR "Project ${PROJECT_NAME} compile fialed")
 endif()
