@@ -8,25 +8,25 @@
  */
 
 #define WHIRLPOOL_DIGESTBYTES 64
-#define WHIRLPOOL_DIGESTBITS  (8*WHIRLPOOL_DIGESTBYTES) /* 512 */
+#define WHIRLPOOL_DIGESTBITS (8 * WHIRLPOOL_DIGESTBYTES) /* 512 */
 
 #define WBLOCKBYTES 64
-#define WBLOCKBITS  (8*WBLOCKBYTES) /* 512 */
+#define WBLOCKBITS (8 * WBLOCKBYTES) /* 512 */
 
 #define LENGTHBYTES 32
-#define LENGTHBITS  (8*LENGTHBYTES) /* 256 */
+#define LENGTHBITS (8 * LENGTHBYTES) /* 256 */
 
-typedef struct WHIRLPOOLstruct
+typedef struct
 {
-	unsigned char  bitLength[LENGTHBYTES]; /* global number of hashed bits (256-bit counter) */
-	unsigned char  buffer[WBLOCKBYTES]; /* buffer of data to hash */
-	int bufferBits;           /* current number of bits on the buffer */
-	int bufferPos;            /* current (possibly incomplete) byte slot on the buffer */
-	uint64_t hash[WHIRLPOOL_DIGESTBYTES / 8];    /* the hashing state */
-} WHIRLPOOLstruct, WhirlpoolState;
+    unsigned char bitLength[LENGTHBYTES];     /* global number of hashed bits (256-bit counter) */
+    unsigned char buffer[WBLOCKBYTES];        /* buffer of data to hash */
+    int bufferBits;                           /* current number of bits on the buffer */
+    int bufferPos;                            /* current (possibly incomplete) byte slot on the buffer */
+    uint64_t hash[WHIRLPOOL_DIGESTBYTES / 8]; /* the hashing state */
+} WhirlpoolStruct;
 
-void WHIRLPOOLinit(struct WHIRLPOOLstruct* const structpointer);
-void WHIRLPOOLadd(struct WHIRLPOOLstruct* const structpointer,const unsigned char* const source, size_t sourceBytes);
-void WHIRLPOOLfinalize(struct WHIRLPOOLstruct* const structpointer, unsigned char* const result);
+void whirlpool_init(WhirlpoolStruct *const structpointer);
+void whirlpool_update(WhirlpoolStruct *const structpointer, const unsigned char *const source, size_t sourceBytes);
+void whirlpool_final(WhirlpoolStruct *const structpointer, unsigned char *const result);
 
 #endif

@@ -2,12 +2,12 @@
 #include "whirlpool.h"
 #include "whirlpoolext.h"
 
-WhirlpoolState *WHIRLPOOLnew()
+WhirlpoolStruct *whirlpool_new()
 {
-    return malloc(sizeof(WhirlpoolState));
+    return malloc(sizeof(WhirlpoolStruct));
 }
 
-void WHIRLPOOLdelete(WhirlpoolState *state)
+void whirlpool_delete(WhirlpoolStruct *state)
 {
     free(state);
     state = NULL;

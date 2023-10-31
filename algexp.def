@@ -71,11 +71,11 @@ EXPORTS
     streebog_new        = GOST34112012New
     streebog_update     = GOST34112012Update
 
-    whirlpool_delete    = WHIRLPOOLdelete
-    whirlpool_final     = WHIRLPOOLfinalize
-    whirlpool_init      = WHIRLPOOLinit
-    whirlpool_new       = WHIRLPOOLnew
-    whirlpool_update    = WHIRLPOOLadd
+    whirlpool_delete
+    whirlpool_final
+    whirlpool_init
+    whirlpool_new
+    whirlpool_update
 
     xxh32_delete        = XXH32_freeState
     xxh32_final         = XXH32_digest

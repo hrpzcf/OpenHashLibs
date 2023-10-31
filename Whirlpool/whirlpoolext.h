@@ -3,7 +3,7 @@
 
 #include "whirlpool.h"
 
-WhirlpoolState* WHIRLPOOLnew();
-void WHIRLPOOLdelete(WhirlpoolState* state);
+WhirlpoolStruct* whirlpool_new();
+void whirlpool_delete(WhirlpoolStruct* state);
 
 #endif // WHIRLPOOLEXT_H_
