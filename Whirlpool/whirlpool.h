@@ -25,8 +25,8 @@ typedef struct
     uint64_t hash[WHIRLPOOL_DIGESTBYTES / 8]; /* the hashing state */
 } WhirlpoolStruct;
 
-void whirlpool_init(WhirlpoolStruct *const structpointer);
-void whirlpool_update(WhirlpoolStruct *const structpointer, const unsigned char *const source, size_t sourceBytes);
-void whirlpool_final(WhirlpoolStruct *const structpointer, unsigned char *const result);
+void whirlpool_init(WhirlpoolStruct *const structptr);
+void whirlpool_update(WhirlpoolStruct *const structptr, const unsigned char *const source, uint64_t sourceBytes);
+void whirlpool_final(WhirlpoolStruct *const structptr, unsigned char *const result);
 
 #endif
