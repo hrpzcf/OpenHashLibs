@@ -1,7 +1,13 @@
 cmake_minimum_required (VERSION 3.27.0)
 project("hashalgs" VERSION 0.1.0)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
+set(USING_DEBUG_MODE 0)
+
+if(NOT USING_DEBUG_MODE)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
+else()
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$ENV{USERPROFILE}/AppData/Local/HashCalculator/Library")
+endif()
 
 add_subdirectory("Blake2")
 add_subdirectory("Blake3")
@@ -35,7 +41,11 @@ target_link_libraries(${PROJECT_NAME}
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
-if (CMAKE_SIZEOF_VOID_P EQUAL 4)
+if (USING_DEBUG_MODE)
+    if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+        message(FATAL_ERROR "@@@@@@ Please use a 64bit compiler")
+    endif()
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "32.dll")
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "64.dll")
