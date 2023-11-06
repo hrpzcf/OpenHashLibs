@@ -1,5 +1,3 @@
 # OpenHashLibs
 
-In this repository are some hash algorithm source code and dynamic link libraries collected for [HashCalculator](https://github.com/hrpzcf/HashCalculator).
-
-For details, see the `README.md` file in each directory.
+In this repository are some hash algorithm source code collected for [HashCalculator](https://github.com/hrpzcf/HashCalculator). Check the `README.md` file in each subdirectory of the [OpenHashLibs](https://github.com/hrpzcf/OpenHashLibs) project for details.
