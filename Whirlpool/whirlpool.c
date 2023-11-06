@@ -10,10 +10,9 @@
  * <a href="mailto:vincent.rijmen@cryptomathic.com">Vincent Rijmen</a>.
  *
  * See
- *      P.S.L.M. Barreto, V. Rijmen,
- *      ``The Whirlpool hashing function,''
- *      WHIRLPOOL submission, 2000 (tweaked version, 2001),
- *      <https://www.cosic.esat.kuleuven.ac.be/nessie/workshop/submissions/whirlpool.zip>
+ *    P.S.L.M. Barreto, V. Rijmen,
+ *    ``The Whirlpool hashing function``, WHIRLPOOL submission, 2000 (tweaked version, 2001),
+ *    <https://www.cosic.esat.kuleuven.ac.be/nessie/workshop/submissions/whirlpool.zip>
  *
  * @author  Paulo S.L.M. Barreto
  * @author  Vincent Rijmen.
@@ -36,6 +35,8 @@
  *      in pieces rather than in a single chunk at once).
  * - Support for MS Visual C++ 64-bit integer arithmetic.
  *
+ * =============================================================================
+ *
  * Differences from version 1.0:
  *
  * - Original S-box replaced by the tweaked, hardware-efficient version.
@@ -54,6 +55,7 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
+ * =============================================================================
  */
 
 #include <stdio.h>
@@ -64,28 +66,16 @@
 
 #include "whirlpool.h"
 
-#if defined(_MSC_VER)
-#define INLINE static __forceinline
-#else
-#define INLINE static inline __attribute__((always_inline))
-#endif
-
 #define LL(v) (v##ULL)
 
 /*
  * Note: the test is used to detect native 64-bit architectures;
- * if the unsigned long is strictly greater than 32-bit, it is
- * assumed to be at least 64-bit. This will not work correctly
- * on (old) 36-bit architectures (PDP-11 for instance).
+ * if the unsigned long is strictly greater than 32-bit, it is assumed to be
+ * at least 64-bit. This will not work correctly on (old) 36-bit
+ * architectures (PDP-11 for instance).
  *
  * On non-64-bit architectures, "long long" is used.
  */
-
-/*
- * Whirlpool-specific definitions.
- */
-
-/* #define TRACE_INTERMEDIATE_VALUES */
 
 /*
  * The number of rounds of the internal dedicated block cipher.
@@ -93,10 +83,9 @@
 #define ROUND 10
 
 /*
- * Though Whirlpool is endianness-neutral, the encryption tables are listed
- * in BIG-ENDIAN format, which is adopted throughout this implementation
- * (but little-endian notation would be equally suitable if consistently
- * employed).
+ * Though Whirlpool is endianness-neutral, the encryption tables are listed in
+ * BIG-ENDIAN format, which is adopted throughout this implementation
+ * (but little-endian notation would be equally suitable if consistently employed).
  */
 
 static const uint64_t C0[256] =
