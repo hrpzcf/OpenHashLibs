@@ -1,0 +1,3 @@
+[submodule "SM3/GmSSL"]
+	path = SM3/GmSSL
+	url = git@github.com:guanzhi/GmSSL.git

@@ -15,6 +15,7 @@ add_subdirectory("CrcHash")
 add_subdirectory("Keccak")
 add_subdirectory("QuickXor")
 add_subdirectory("Sha2")
+add_subdirectory("SM3")
 add_subdirectory("Streebog")
 add_subdirectory("Whirlpool")
 add_subdirectory("XxHash")
@@ -32,6 +33,7 @@ target_link_libraries(${PROJECT_NAME}
     keccak
     quickxor
     sha2
+    sm3
     streebog
     whirlpool
     xxhash

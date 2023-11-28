@@ -65,6 +65,12 @@ EXPORTS
     sha3_new            = keccak_new
     sha3_update
 
+    sm3_delete
+    sm3_final           = sm3_finish
+    sm3_init
+    sm3_new
+    sm3_update
+
     streebog_delete     = GOST34112012Delete
     streebog_final      = GOST34112012Final
     streebog_init       = GOST34112012Init
