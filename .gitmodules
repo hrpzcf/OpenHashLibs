@@ -7,3 +7,6 @@
 [submodule "Blake3/Blake3"]
 	path = Blake3/Blake3
 	url = git@github.com:BLAKE3-team/BLAKE3.git
+[submodule "Keccak/XKCP"]
+	path = Keccak/XKCP
+	url = git@github.com:XKCP/XKCP.git

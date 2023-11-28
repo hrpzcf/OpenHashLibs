@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
+#include "additional.h"
 #include "KeccakHash.h"
-#include "keccakext.h"
 
 Keccak_HashInstance *keccak_new(void)
 {

@@ -4,79 +4,79 @@ project(keccak VERSION 0.1.0)
 set(PREFERRED_INSTRUCTION "SSE2")
 
 set(COMMON_FILES
-        ./keccakext.c
-        ./high/Keccak/FIPS202/KeccakHash.c
-        ./high/Keccak/FIPS202/SimpleFIPS202.c
-        ./high/Keccak/KeccakSponge.c
-        )
+    "XKCP/lib/high/Keccak/KeccakSponge.c"
+    "XKCP/lib/high/Keccak/FIPS202/KeccakHash.c"
+    "XKCP/lib/high/Keccak/FIPS202/SimpleFIPS202.c"
+    "additional.c"
+)
 
 set(AVX_FILES
-        ./low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c
-        ./low/KeccakP-1600-times2/SIMD128/KeccakP-1600-times2-SIMD128.c
-        )
+    "XKCP/lib/low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c"
+    "XKCP/lib/low/KeccakP-1600-times2/SIMD128/KeccakP-1600-times2-SIMD128.c"
+)
 
 set(AVX2_FILES
-        ./low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c
-        ./low/KeccakP-1600-times2/SIMD128/KeccakP-1600-times2-SIMD128.c
-        ./low/KeccakP-1600-times4/AVX2/KeccakP-1600-times4-SIMD256.c
-        )
+    "XKCP/lib/low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c"
+    "XKCP/lib/low/KeccakP-1600-times2/SIMD128/KeccakP-1600-times2-SIMD128.c"
+    "XKCP/lib/low/KeccakP-1600-times4/AVX2/KeccakP-1600-times4-SIMD256.c"
+)
 
 set(AVX512_FILES
-        ./low/KeccakP-1600/AVX512/C/KeccakP-1600-AVX512.c
-        ./low/KeccakP-1600-times2/AVX512/KeccakP-1600-times2-SIMD512.c
-        ./low/KeccakP-1600-times4/AVX512/KeccakP-1600-times4-SIMD512.c
-        ./low/KeccakP-1600-times8/AVX512/KeccakP-1600-times8-SIMD512.c
-        )
+    "XKCP/lib/low/KeccakP-1600/AVX512/C/KeccakP-1600-AVX512.c"
+    "XKCP/lib/low/KeccakP-1600-times2/AVX512/KeccakP-1600-times2-SIMD512.c"
+    "XKCP/lib/low/KeccakP-1600-times4/AVX512/KeccakP-1600-times4-SIMD512.c"
+    "XKCP/lib/low/KeccakP-1600-times8/AVX512/KeccakP-1600-times8-SIMD512.c"
+)
 
 set(GENERIC_FILES
-        ./low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c
-        )
+    "XKCP/lib/low/KeccakP-1600/plain-64bits/KeccakP-1600-opt64.c"
+)
 
 set(COMMON_INCLUDES
-        .
-        ./common
-        ./high/common
-        ./high/Keccak
-        ./high/Keccak/FIPS202
-        )
+    "XKCP/lib/common"
+    "XKCP/lib/high/common"
+    "XKCP/lib/high/Keccak"
+    "XKCP/lib/high/Keccak/FIPS202"
+    "."
+)
 
 set(AVX_INCLUDES
-        ./low/common
-        ./low/KeccakP-1600/common
-        ./low/KeccakP-1600/plain-64bits
-        ./low/KeccakP-1600/plain-64bits/lcua-shld
-        ./low/KeccakP-1600-times2/SIMD128
-        ./low/KeccakP-1600-times2/SIMD128/SSSE3-ua
-        )
+    "XKCP/lib/low/common"
+    "XKCP/lib/low/KeccakP-1600/common"
+    "XKCP/lib/low/KeccakP-1600/plain-64bits"
+    "XKCP/lib/low/KeccakP-1600/plain-64bits/lcua-shld"
+    "XKCP/lib/low/KeccakP-1600-times2/SIMD128"
+    "XKCP/lib/low/KeccakP-1600-times2/SIMD128/SSSE3-ua"
+)
 
 set(AVX2_INCLUDES
-        ./low/common
-        ./low/KeccakP-1600/common
-        ./low/KeccakP-1600/plain-64bits
-        ./low/KeccakP-1600/plain-64bits/ua
-        ./low/KeccakP-1600-times2/SIMD128
-        ./low/KeccakP-1600-times2/SIMD128/SSSE3-u2
-        ./low/KeccakP-1600-times4/AVX2
-        ./low/KeccakP-1600-times4/AVX2/u12
-        )
+    "XKCP/lib/low/common"
+    "XKCP/lib/low/KeccakP-1600/common"
+    "XKCP/lib/low/KeccakP-1600/plain-64bits"
+    "XKCP/lib/low/KeccakP-1600/plain-64bits/ua"
+    "XKCP/lib/low/KeccakP-1600-times2/SIMD128"
+    "XKCP/lib/low/KeccakP-1600-times2/SIMD128/SSSE3-u2"
+    "XKCP/lib/low/KeccakP-1600-times4/AVX2"
+    "XKCP/lib/low/KeccakP-1600-times4/AVX2/u12"
+)
 
 set(AVX512_INCLUDES
-        ./low/KeccakP-1600/AVX512/C/u12
-        ./low/KeccakP-1600/AVX512/C
-        ./low/KeccakP-1600-times2/AVX512
-        ./low/KeccakP-1600-times2/AVX512/AVX512u12
-        ./low/KeccakP-1600-times4/AVX512
-        ./low/KeccakP-1600-times4/AVX512/AVX512u12
-        ./low/KeccakP-1600-times8/AVX512
-        ./low/KeccakP-1600-times8/AVX512/u12
-        )
+    "XKCP/lib/low/KeccakP-1600/AVX512/C/u12"
+    "XKCP/lib/low/KeccakP-1600/AVX512/C"
+    "XKCP/lib/low/KeccakP-1600-times2/AVX512"
+    "XKCP/lib/low/KeccakP-1600-times2/AVX512/AVX512u12"
+    "XKCP/lib/low/KeccakP-1600-times4/AVX512"
+    "XKCP/lib/low/KeccakP-1600-times4/AVX512/AVX512u12"
+    "XKCP/lib/low/KeccakP-1600-times8/AVX512"
+    "XKCP/lib/low/KeccakP-1600-times8/AVX512/u12"
+)
 
 set(GENERIC_INCLUDES
-        ./low/common
-        ./low/KeccakP-1600/common
-        ./low/KeccakP-1600/plain-64bits
-        ./low/KeccakP-1600/plain-64bits/ua
-        )
+    "XKCP/lib/low/common"
+    "XKCP/lib/low/KeccakP-1600/common"
+    "XKCP/lib/low/KeccakP-1600/plain-64bits"
+    "XKCP/lib/low/KeccakP-1600/plain-64bits/ua"
+)
 
 if ("${PREFERRED_INSTRUCTION}" STREQUAL "SSE2")
     set(FILES ${COMMON_FILES} ${GENERIC_FILES})
