@@ -10,3 +10,6 @@
 [submodule "Keccak/XKCP"]
 	path = Keccak/XKCP
 	url = git@github.com:XKCP/XKCP.git
+[submodule "QuickXor/QuickXorHash"]
+	path = QuickXor/QuickXorHash
+	url = git@github.com:namazso/QuickXorHash.git

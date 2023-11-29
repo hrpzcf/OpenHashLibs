@@ -3,7 +3,7 @@
 
 #include "quickxorhash.h"
 
-qxhash_t *qxhash_new(void);
-void qxhash_delete(qxhash_t *state);
+struct qxhash *qxhash_new(void);
+void qxhash_delete(struct qxhash *state);
 
 #endif // QUICKXOREXT_H_
