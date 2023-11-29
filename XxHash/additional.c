@@ -1,4 +1,4 @@
-#include "xxhashext.h"
+#include "xxhash.h"
 
 // XXH32
 XXH_errorcode XXH32_reset_noSeed(XXH32_state_t *state)

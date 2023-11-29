@@ -13,3 +13,6 @@
 [submodule "QuickXor/QuickXorHash"]
 	path = QuickXor/QuickXorHash
 	url = git@github.com:namazso/QuickXorHash.git
+[submodule "XxHash/xxHash"]
+	path = XxHash/xxHash
+	url = git@github.com:Cyan4973/xxHash.git
