@@ -9,4 +9,4 @@
 #define __GOST3411_HAS_MMX__
 #endif
 
-#endif
+#endif // CONFIG_H__
