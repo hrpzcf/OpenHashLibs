@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "whirlpool.h"
-#include "whirlpoolext.h"
 
 WhirlpoolStruct *whirlpool_new()
 {
