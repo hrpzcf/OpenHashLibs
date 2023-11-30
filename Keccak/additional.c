@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include "additional.h"
 #include "KeccakHash.h"
 
 Keccak_HashInstance *keccak_new(void)

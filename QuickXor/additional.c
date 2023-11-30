@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "additional.h"
 #include "quickxorhash.h"
 
 struct qxhash *qxhash_new(void)

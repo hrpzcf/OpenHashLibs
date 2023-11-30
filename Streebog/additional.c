@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "gost3411-2012-core.h"
-#include "streebogext.h"
 
 GOST34112012Context *GOST34112012New(void)
 {

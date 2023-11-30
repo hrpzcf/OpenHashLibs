@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 3.27.0)
 project(sm3 VERSION 0.1.0)
 
-include_directories(
-    "."
-    "./GmSSL/include"
-)
-set(src "./gmsslsm3ext.c" "./GmSSL/src/sm3.c")
+include_directories("GmSSL/include")
 
-add_library(${PROJECT_NAME} STATIC ${src})
+add_library(${PROJECT_NAME} STATIC
+    "GmSSL/src/sm3.c"
+    "additional.c"
+)

@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "additional.h"
 #include "blake2.h"
 
 blake2s_state *blake2s_new()

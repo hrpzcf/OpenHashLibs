@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include "gmssl/sm3.h"
-#include "gmsslsm3ext.h"
 
 SM3_CTX *sm3_new(void)
 {

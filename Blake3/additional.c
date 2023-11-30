@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "additional.h"
 #include "blake3.h"
 
 blake3_hasher *blake3_hasher_new(void)

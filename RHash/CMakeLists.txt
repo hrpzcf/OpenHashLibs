@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.27.0)
 project(rhash VERSION 0.1.0)
 
 include_directories("RHash/librhash")
-set(src
+
+add_library(${PROJECT_NAME} STATIC
     # common files
     "RHash/librhash/byte_order.c"
     # for sha224 algorithm
@@ -13,5 +14,3 @@ set(src
     # additional of many algorithms
     "additional.c"
 )
-
-add_library(${PROJECT_NAME} STATIC ${src})
