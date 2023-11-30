@@ -11,7 +11,8 @@ endif()
 
 add_subdirectory("Blake2")
 add_subdirectory("Blake3")
-add_subdirectory("CrcHash")
+add_subdirectory("CRC32")
+add_subdirectory("CRC64")
 add_subdirectory("Keccak")
 add_subdirectory("QuickXor")
 add_subdirectory("RHash")
@@ -28,7 +29,8 @@ target_link_libraries(${PROJECT_NAME}
     "-Wl,--whole-archive"
     blake2
     blake3
-    crchash
+    crc32
+    crc64
     keccak
     quickxor
     rhash

@@ -1,21 +1,24 @@
-[submodule "SM3/GmSSL"]
-	path = SM3/GmSSL
-	url = git@github.com:guanzhi/GmSSL.git
 [submodule "Blake2/Blake2"]
 	path = Blake2/Blake2
 	url = git@github.com:BLAKE2/BLAKE2.git
 [submodule "Blake3/Blake3"]
 	path = Blake3/Blake3
 	url = git@github.com:BLAKE3-team/BLAKE3.git
+[submodule "CRC32/CRC32"]
+	path = CRC32/CRC32
+	url = git@github.com:hrpzcf/crc32.git
 [submodule "Keccak/XKCP"]
 	path = Keccak/XKCP
 	url = git@github.com:XKCP/XKCP.git
 [submodule "QuickXor/QuickXorHash"]
 	path = QuickXor/QuickXorHash
 	url = git@github.com:namazso/QuickXorHash.git
-[submodule "XxHash/xxHash"]
-	path = XxHash/xxHash
-	url = git@github.com:Cyan4973/xxHash.git
 [submodule "RHash/RHash"]
 	path = RHash/RHash
 	url = git@github.com:rhash/RHash.git
+[submodule "SM3/GmSSL"]
+	path = SM3/GmSSL
+	url = git@github.com:guanzhi/GmSSL.git
+[submodule "XxHash/xxHash"]
+	path = XxHash/xxHash
+	url = git@github.com:Cyan4973/xxHash.git

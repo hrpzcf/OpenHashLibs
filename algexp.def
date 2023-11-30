@@ -42,7 +42,7 @@ EXPORTS
     blake3_new          = blake3_hasher_new
     blake3_update       = blake3_hasher_update
 
-    crc32_update        = crc32_16bytes
+    crc32_update        = crc32_fast
     crc64_update
 
     get_hashes_ver
