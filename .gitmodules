@@ -19,6 +19,9 @@
 [submodule "SM3/GmSSL"]
 	path = SM3/GmSSL
 	url = git@github.com:guanzhi/GmSSL.git
+[submodule "Streebog/Streebog"]
+	path = Streebog/Streebog
+	url = git@github.com:hrpzcf/streebog.git
 [submodule "XxHash/xxHash"]
 	path = XxHash/xxHash
 	url = git@github.com:Cyan4973/xxHash.git
