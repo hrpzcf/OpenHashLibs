@@ -16,7 +16,6 @@ add_subdirectory("Keccak")
 add_subdirectory("QuickXor")
 add_subdirectory("RHash")
 add_subdirectory("SM3")
-add_subdirectory("Sha2")
 add_subdirectory("Streebog")
 add_subdirectory("XxHash")
 
@@ -34,7 +33,6 @@ target_link_libraries(${PROJECT_NAME}
     quickxor
     rhash
     sm3
-    sha2
     streebog
     xxhash
     "-Wl,--no-whole-archive"

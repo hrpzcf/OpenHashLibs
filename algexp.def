@@ -53,11 +53,11 @@ EXPORTS
     quickxor_new        = qxhash_new
     quickxor_update     = qxhash_update
 
-    sha224_delete       = Hacl_Streaming_SHA2_free_224
-    sha224_final        = Hacl_Streaming_SHA2_finish_224
-    sha224_init         = Hacl_Streaming_SHA2_init_224
-    sha224_new          = Hacl_Streaming_SHA2_create_in_224
-    sha224_update       = Hacl_Streaming_SHA2_update_224
+    sha224_delete       = rhash_sha224_delete
+    sha224_final        = rhash_sha256_final
+    sha224_init         = rhash_sha224_init
+    sha224_new          = rhash_sha224_new
+    sha224_update       = rhash_sha256_update
 
     sha3_delete         = keccak_delete
     sha3_final
