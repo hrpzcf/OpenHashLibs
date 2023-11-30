@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.27.0)
-project("hashalgs" VERSION 0.1.0)
+project("hashalgs" VERSION 0.2.0)
 
 set(USING_DEBUG_MODE 0)
 
@@ -14,10 +14,10 @@ add_subdirectory("Blake3")
 add_subdirectory("CrcHash")
 add_subdirectory("Keccak")
 add_subdirectory("QuickXor")
-add_subdirectory("Sha2")
+add_subdirectory("RHash")
 add_subdirectory("SM3")
+add_subdirectory("Sha2")
 add_subdirectory("Streebog")
-add_subdirectory("Whirlpool")
 add_subdirectory("XxHash")
 
 add_library(${PROJECT_NAME} SHARED
@@ -32,10 +32,10 @@ target_link_libraries(${PROJECT_NAME}
     crchash
     keccak
     quickxor
-    sha2
+    rhash
     sm3
+    sha2
     streebog
-    whirlpool
     xxhash
     "-Wl,--no-whole-archive"
     -static-libgcc

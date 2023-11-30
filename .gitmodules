@@ -16,3 +16,6 @@
 [submodule "XxHash/xxHash"]
 	path = XxHash/xxHash
 	url = git@github.com:Cyan4973/xxHash.git
+[submodule "RHash/RHash"]
+	path = RHash/RHash
+	url = git@github.com:rhash/RHash.git

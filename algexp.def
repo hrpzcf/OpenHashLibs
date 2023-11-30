@@ -77,11 +77,11 @@ EXPORTS
     streebog_new        = GOST34112012New
     streebog_update     = GOST34112012Update
 
-    whirlpool_delete
-    whirlpool_final
-    whirlpool_init
-    whirlpool_new
-    whirlpool_update
+    whirlpool_delete    = rhash_whirlpool_delete
+    whirlpool_final     = rhash_whirlpool_final
+    whirlpool_init      = rhash_whirlpool_init
+    whirlpool_new       = rhash_whirlpool_new
+    whirlpool_update    = rhash_whirlpool_update
 
     xxh32_delete        = XXH32_freeState
     xxh32_final         = XXH32_digest
