@@ -45,13 +45,31 @@ EXPORTS
     crc32_update        = crc32_fast
     crc64_update
 
+    ed2k_new            = rhash_ed2k_new
+    ed2k_init           = rhash_ed2k_init
+    ed2k_update         = rhash_ed2k_update
+    ed2k_final          = rhash_ed2k_final
+    ed2k_delete         = rhash_ed2k_delete
+    
     get_hashes_ver
+
+    md4_new             = rhash_md4_new
+    md4_init            = rhash_md4_init
+    md4_update          = rhash_md4_update
+    md4_final           = rhash_md4_final
+    md4_delete          = rhash_md4_delete
 
     quickxor_delete     = qxhash_delete
     quickxor_final      = qxhash_final
     quickxor_init       = qxhash_init
     quickxor_new        = qxhash_new
     quickxor_update     = qxhash_update
+
+    ripemd160_new       = rhash_ripemd160_new
+    ripemd160_init      = rhash_ripemd160_init
+    ripemd160_update    = rhash_ripemd160_update
+    ripemd160_final     = rhash_ripemd160_final
+    ripemd160_delete    = rhash_ripemd160_delete
 
     sha224_delete       = rhash_sha224_delete
     sha224_final        = rhash_sha256_final
