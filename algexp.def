@@ -53,6 +53,12 @@ EXPORTS
     
     get_hashes_ver
 
+    has160_new          = rhash_has160_new
+    has160_init         = rhash_has160_init
+    has160_update       = rhash_has160_update
+    has160_final        = rhash_has160_final
+    has160_delete       = rhash_has160_delete
+
     md4_new             = rhash_md4_new
     md4_init            = rhash_md4_init
     md4_update          = rhash_md4_update

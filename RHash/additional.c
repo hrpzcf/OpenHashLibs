@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "ed2k.h"
+#include "has160.h"
 #include "md4.h"
 #include "ripemd-160.h"
 #include "sha256.h"
@@ -24,6 +25,17 @@ ed2k_ctx *rhash_ed2k_new(void)
 }
 
 void rhash_ed2k_delete(ed2k_ctx *state)
+{
+    rhash_algo_delete(state);
+}
+
+// has160
+has160_ctx *rhash_has160_new(void)
+{
+    return malloc(sizeof(has160_ctx));
+}
+
+void rhash_has160_delete(has160_ctx *state)
 {
     rhash_algo_delete(state);
 }

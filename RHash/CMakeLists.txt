@@ -8,6 +8,8 @@ add_library(${PROJECT_NAME} STATIC
     "RHash/librhash/byte_order.c"
     # for ed2k algorithm
     "RHash/librhash/ed2k.c"
+    # for has160 algorithm
+    "RHash/librhash/has160.c"
     # for md4/ed2k algorithm
     "RHash/librhash/md4.c"
     # for ripemd160 algorithm
