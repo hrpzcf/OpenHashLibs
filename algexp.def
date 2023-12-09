@@ -83,11 +83,11 @@ EXPORTS
     sha224_new          = rhash_sha224_new
     sha224_update       = rhash_sha256_update
 
-    sha3_delete         = keccak_delete
-    sha3_final
+    sha3_delete         = Keccak_Delete
+    sha3_final          = Keccak_HashFinal
     sha3_init
-    sha3_new            = keccak_new
-    sha3_update
+    sha3_new            = Keccak_New
+    sha3_update         = Keccak_HashUpdate
 
     sm3_delete
     sm3_final           = sm3_finish

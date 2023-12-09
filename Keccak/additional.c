@@ -2,20 +2,20 @@
 #include <string.h>
 #include "KeccakHash.h"
 
-Keccak_HashInstance *keccak_new(void)
+Keccak_HashInstance *Keccak_New(void)
 {
     return malloc(sizeof(Keccak_HashInstance));
 }
 
-void keccak_delete(Keccak_HashInstance *state)
+void Keccak_Delete(Keccak_HashInstance *state)
 {
     free(state);
     state = NULL;
 }
 
-HashReturn sha3_init(Keccak_HashInstance *state, int32_t bit_size)
+HashReturn sha3_init(Keccak_HashInstance *state, int32_t bit_length)
 {
-    switch (bit_size)
+    switch (bit_length)
     {
     case 224:
         return Keccak_HashInitialize_SHA3_224(state);
@@ -28,18 +28,4 @@ HashReturn sha3_init(Keccak_HashInstance *state, int32_t bit_size)
     default:
         return KECCAK_BAD_HASHLEN;
     }
-}
-
-HashReturn sha3_update(Keccak_HashInstance *state, void *input, size_t in_size)
-{
-    return Keccak_HashUpdate(state, input, in_size * 8);
-}
-
-HashReturn sha3_final(Keccak_HashInstance *state, void *output, size_t out_size)
-{
-    if (out_size * 8 < state->fixedOutputLength)
-    {
-        return KECCAK_BAD_HASHLEN;
-    }
-    return Keccak_HashFinal(state, output);
 }
