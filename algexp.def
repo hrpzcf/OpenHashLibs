@@ -1,4 +1,4 @@
-LIBRARY hashes
+LIBRARY hashalgs
 EXPORTS
     blake2b_delete      = blake2_delete
     blake2b_final
@@ -50,8 +50,6 @@ EXPORTS
     ed2k_update         = rhash_ed2k_update
     ed2k_final          = rhash_ed2k_final
     ed2k_delete         = rhash_ed2k_delete
-    
-    get_hashes_ver
 
     has160_new          = rhash_has160_new
     has160_init         = rhash_has160_init

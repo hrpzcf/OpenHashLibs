@@ -20,10 +20,7 @@ add_subdirectory("SM3")
 add_subdirectory("Streebog")
 add_subdirectory("XxHash")
 
-add_library(${PROJECT_NAME} SHARED
-    "hashalgs.c"
-    "algexp.def"
-)
+add_library(${PROJECT_NAME} SHARED "algexp.def")
 
 target_link_libraries(${PROJECT_NAME}
     "-Wl,--whole-archive"
@@ -45,7 +42,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
 
 if (USING_DEBUG_MODE)
     if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
-        message(FATAL_ERROR "@@@@@@ Please use a 64bit compiler")
+        message(FATAL_ERROR "@@@@@@ Please use x86_64 compiler")
     endif()
 elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "32.dll")
