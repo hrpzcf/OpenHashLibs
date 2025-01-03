@@ -1,12 +1,12 @@
 cmake_minimum_required (VERSION 3.27.0)
 project("hashalgs" VERSION 0.2.0)
 
-set(USING_DEBUG_MODE 0)
-
-if(NOT USING_DEBUG_MODE)
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/Output")
+if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/../HashCalculator/Costura-win-x86")
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/../HashCalculator/Costura-win-x64")
 else()
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "$ENV{USERPROFILE}/AppData/Local/HashCalculator/Library")
+    message(FATAL_ERROR "Project ${PROJECT_NAME} compile fialed")
 endif()
 
 add_subdirectory("Blake2")
@@ -39,15 +39,3 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "")
-
-if (USING_DEBUG_MODE)
-    if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
-        message(FATAL_ERROR "@@@@@@ Please use x86_64 compiler")
-    endif()
-elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "32.dll")
-elseif(CMAKE_SIZEOF_VOID_P EQUAL 8)
-    set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX "64.dll")
-else()
-    message(FATAL_ERROR "Project ${PROJECT_NAME} compile fialed")
-endif()
