@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.27.0)
-project("hashalgs" VERSION 0.3.0)
+project("hashalgs" VERSION 1.0.0)
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 4)
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_HOME_DIRECTORY}/../HashCalculator/Costura-win-x86")
