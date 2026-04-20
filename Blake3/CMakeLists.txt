@@ -29,17 +29,7 @@ add_library(${PROJECT_NAME} STATIC
     "additional.c"
 )
 
-# optional SIMD sources
-macro(BLAKE3_DISABLE_SIMD)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-        BLAKE3_NO_SSE2
-        BLAKE3_NO_SSE41
-        BLAKE3_NO_AVX2
-        BLAKE3_NO_AVX512
-    )
-endmacro()
-
-if((CMAKE_SIZEOF_VOID_P EQUAL 8) OR BLAKE3_USE_AMD64_ASM)
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     if(CMAKE_C_COMPILER_ID STREQUAL "MSVC")
         enable_language(ASM_MASM)
         target_sources(${PROJECT_NAME} PRIVATE
@@ -48,22 +38,27 @@ if((CMAKE_SIZEOF_VOID_P EQUAL 8) OR BLAKE3_USE_AMD64_ASM)
             "Blake3/c/blake3_sse2_x86-64_windows_msvc.asm"
             "Blake3/c/blake3_sse41_x86-64_windows_msvc.asm"
         )
+        set(SIMD_TYPE_ALREADY_MATCHED 1)
     elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
-        if (WIN32)
+        if(UNIX)
+            target_sources(${PROJECT_NAME} PRIVATE
+                "Blake3/c/blake3_avx2_x86-64_unix.S"
+                "Blake3/c/blake3_avx512_x86-64_unix.S"
+                "Blake3/c/blake3_sse2_x86-64_unix.S"
+                "Blake3/c/blake3_sse41_x86-64_unix.S"
+            )
+            set(SIMD_TYPE_ALREADY_MATCHED 1)
+        elseif (WIN32)
             target_sources(${PROJECT_NAME} PRIVATE
                 "Blake3/c/blake3_avx2_x86-64_windows_gnu.S"
                 "Blake3/c/blake3_avx512_x86-64_windows_gnu.S"
                 "Blake3/c/blake3_sse2_x86-64_windows_gnu.S"
                 "Blake3/c/blake3_sse41_x86-64_windows_gnu.S"
             )
-        else()
-            BLAKE3_DISABLE_SIMD()
+            set(SIMD_TYPE_ALREADY_MATCHED 1)
         endif()
-    else()  
-        BLAKE3_DISABLE_SIMD()
     endif()
-elseif(((CMAKE_SIZEOF_VOID_P EQUAL 4) OR BLAKE3_USE_X86_INTRINSICS)
-       AND DEFINED BLAKE3_CFLAGS_SSE2
+elseif(DEFINED BLAKE3_CFLAGS_SSE2
        AND DEFINED BLAKE3_CFLAGS_SSE4.1
        AND DEFINED BLAKE3_CFLAGS_AVX2
        AND DEFINED BLAKE3_CFLAGS_AVX512)
@@ -75,8 +70,16 @@ elseif(((CMAKE_SIZEOF_VOID_P EQUAL 4) OR BLAKE3_USE_X86_INTRINSICS)
     )
     set_source_files_properties("Blake3/c/blake3_sse2.c" PROPERTIES COMPILE_FLAGS "${BLAKE3_CFLAGS_SSE2}")
     set_source_files_properties("Blake3/c/blake3_sse41.c" PROPERTIES COMPILE_FLAGS "${BLAKE3_CFLAGS_SSE4.1}")
-    set_source_files_properties("Blake3/c/blake3_avx512.c" PROPERTIES COMPILE_FLAGS "${BLAKE3_CFLAGS_AVX512}")
     set_source_files_properties("Blake3/c/blake3_avx2.c" PROPERTIES COMPILE_FLAGS "${BLAKE3_CFLAGS_AVX2}")
-else()
-    BLAKE3_DISABLE_SIMD()
+    set_source_files_properties("Blake3/c/blake3_avx512.c" PROPERTIES COMPILE_FLAGS "${BLAKE3_CFLAGS_AVX512}")
+    set(SIMD_TYPE_ALREADY_MATCHED 1)
+endif()
+
+if (NOT DEFINED SIMD_TYPE_ALREADY_MATCHED)
+    target_compile_definitions(${PROJECT_NAME} PRIVATE
+        BLAKE3_NO_SSE2
+        BLAKE3_NO_SSE41
+        BLAKE3_NO_AVX2
+        BLAKE3_NO_AVX512
+    )
 endif()
