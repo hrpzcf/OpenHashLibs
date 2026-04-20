@@ -85,10 +85,7 @@ set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} -x assembler-with-cpp -Wa,-defsym,old_ga
 
 add_library(${PROJECT_NAME} STATIC ${FILES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-    ${INCLUDES}
-    ${CMAKE_CURRENT_SOURCE_DIR}
-)
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
 
 # Add compile options for SIMD instruction sets (only for 64-bit builds)
 if ("${PREFERRED_INSTRUCTION}" STREQUAL "AVX2" AND CMAKE_SIZEOF_VOID_P EQUAL 8)
