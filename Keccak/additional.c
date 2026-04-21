@@ -2,8 +2,20 @@
 #include <string.h>
 #include "KeccakHash.h"
 
+#ifdef XKCP_has_x86_64_CPU_detection
+    #include "x86-64-dispatch.h"
+#endif
+
 Keccak_HashInstance *Keccak_New(void)
 {
+#ifdef XKCP_has_x86_64_CPU_detection
+    static int cpu_features_initialized = 0;
+    if (!cpu_features_initialized)
+    {
+        XKCP_EnableAllCpuFeatures();
+        cpu_features_initialized = 1;
+    }
+#endif
     return malloc(sizeof(Keccak_HashInstance));
 }
 
