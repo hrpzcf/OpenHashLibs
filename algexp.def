@@ -76,6 +76,7 @@ EXPORTS
     ripemd160_update                = rhash_ripemd160_update
     ripemd160_final                 = rhash_ripemd160_final
 
+    ; 部分函数与 sha256 通用，非误写
     sha224_new                      = rhash_sha224_new
     sha224_delete                   = rhash_sha224_delete
     sha224_init                     = rhash_sha224_init
